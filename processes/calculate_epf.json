@@ -1,5 +1,5 @@
 {
-  "name": "Calculate EPF",
+  "name": "Calculate Salary Sheet",
   "version": "1",
   "constants": {
     "employerShare": {
