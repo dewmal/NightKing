@@ -6,12 +6,12 @@ class ProcessModel{
     lateinit var version:String
     lateinit var author:String
     lateinit var published:String
-    lateinit var constants:List<VariableModel>
-    lateinit var inputs:List<VariableModel>
-    lateinit var outputs:List<VariableModel>
+    lateinit var constants:HashMap<String,VariableModel>
+    lateinit var inputs:HashMap<String,VariableModel>
+    lateinit var outputs:HashMap<String,VariableModel>
     lateinit var events:List<EventModel>
     override fun toString(): String {
-        return "ProcessModel(name='$name', version='$version', author='$author', constants=$constants, inputs=$inputs, outputs=$outputs, events=$events)"
+        return "ProcessModel(name='$name', version='$version', author='$author', published='$published', constants=$constants, inputs=$inputs, outputs=$outputs, events=$events)"
     }
 
 

@@ -1,56 +1,71 @@
 {
   "name": "Calculate EPF",
-  "version":"1",
-  "constants":[
-    {
+  "version": "1",
+  "constants": {
+    "employerShare": {
       "name": "employerShare",
       "type": "double",
-      "required":true,
-      "value":12.00
+      "required": true,
+      "value": 12.00
     },
-    {
+    "employeeShare": {
       "name": "employeeShare",
       "type": "double",
-      "required":true,
-      "value":8.00
+      "required": true,
+      "value": 8.00
     }
-  ],
-  "inputs": [
-    {
+  },
+  "inputs": {
+    "basicSalary": {
       "name": "basicSalary",
       "type": "double",
-      "required":true
+      "required": true
     }
-  ],
-  "outputs":[
-    {
+  },
+  "outputs": {
+    "calculatedEpfFromEmployer": {
       "name": "calculatedEpfFromEmployer",
       "type": "double",
-      "default":0
+      "default": 0
     },
-    {
+    "calculatedEpfFromEmployee": {
       "name": "calculatedEpfFromEmployee",
       "type": "double",
-      "default":0
+      "default": 0
+    },
+    "netSalaryEmployee": {
+      "name": "netSalaryEmployee",
+      "type": "double",
+      "default": 0
+    },
+    "netSalaryEmployerPayment": {
+      "name": "netSalaryEmployerPayment",
+      "type": "double",
+      "default": 0
+    }
+  },
+  "events": [
+    {
+      "name": "findEmployerShareFromEmployeeBasicSalary",
+      "process": "basicSalary*(employerShare)/100",
+      "output": "calculatedEpfFromEmployer"
+    },
+    {
+      "name": "findEmployeeShareFromEmployeeBasicSalary",
+      "process": "basicSalary*(employeeShare)/100",
+      "output": "calculatedEpfFromEmployee"
+    },
+    {
+      "name": "findNetSalaryEmployeeReceived",
+      "process": "basicSalary-calculatedEpfFromEmployee",
+      "output": "netSalaryEmployee"
+    },
+    {
+      "name": "findNetSalaryEmployerPayment",
+      "process": "basicSalary+calculatedEpfFromEmployer",
+      "output": "netSalaryEmployerPayment"
     }
   ],
-  "events":[
-
-    {
-      "name":"findEmployerShareFromEmployeeBasicSalary",
-      "process":"basicSalary*(employerShare)/100",
-      "output":"calculatedEpfFromEmployer"
-    }
-    ,
-    {
-      "name":"findEmployeeShareFromEmployeeBasicSalary",
-      "process":"basicSalary*(employeeShare)/100",
-      "output":"calculatedEpfFromEmployee"
-    }
-
-  ],
-
-  "author":"E-Green",
-  "published":"2017/08/21"
-
+  "author": "E-Green",
+  "published": "2017/08/21"
 }
