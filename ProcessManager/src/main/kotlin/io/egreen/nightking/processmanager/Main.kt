@@ -1,9 +1,7 @@
 package io.egreen.nightking.processmanager
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.KotlinModule
-import io.egreen.nightking.processmanager.entity.ProcessModel
 import io.egreen.nightking.processmanager.processor.ProcessManager
+import io.egreen.nightking.processmanager.processor.ProcessModelBuilder
 import java.io.File
 
 class Main {
@@ -14,25 +12,17 @@ class Main {
         @JvmStatic
         fun main(args: Array<String>) {
 
-            val jacksonMapper = ObjectMapper().registerModule(KotlinModule())
-            var process: ProcessModel = jacksonMapper.readValue(File("./processes/calculate_epf.json"),ProcessModel::class.java)
 
-            val listInputs= HashMap<String,Any>()
-            listInputs.put("basicSalary",30000)
+            val processModel = ProcessModelBuilder(File("./processes/calculate_epf.json").toURI().toURL())
+                    .setVariables("basicSalary", 45000)
+                    .build()
 
+            val process = ProcessManager().process(processModel)
 
-            for (inPut in listInputs) {
-                println(inPut.key+" \t\t- "+inPut.value)
+            for (variable in process.variables) {
+                println(variable.key + " " + variable.value.value)
             }
-            println()
-            println("---------")
-            println()
-            val processManager = ProcessManager()
-            val outPuts=  processManager.process(process,listInputs)
 
-            for (outPut in outPuts) {
-                println(outPut.key+" \t\t- "+outPut.value.value)
-            }
 
         }
     }

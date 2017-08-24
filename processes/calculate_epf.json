@@ -1,46 +1,49 @@
 {
   "name": "Calculate Salary Sheet",
   "version": "1",
-  "constants": {
+  "variables": {
     "employerShare": {
       "name": "employerShare",
-      "type": "double",
+      "type": "FINAL",
+      "valueType": "double",
       "required": true,
       "value": 12.00
     },
     "employeeShare": {
       "name": "employeeShare",
-      "type": "double",
+      "type": "FINAL",
+      "valueType": "double",
       "required": true,
       "value": 8.00
-    }
-  },
-  "inputs": {
+    },
     "basicSalary": {
       "name": "basicSalary",
-      "type": "double",
+      "type": "VARIABLE",
+      "valueType": "double",
       "required": true
-    }
-  },
-  "outputs": {
+    },
     "calculatedEpfFromEmployer": {
       "name": "calculatedEpfFromEmployer",
-      "type": "double",
+      "type": "VARIABLE",
+      "valueType": "double",
       "default": 0
     },
     "calculatedEpfFromEmployee": {
       "name": "calculatedEpfFromEmployee",
-      "type": "double",
+      "type": "VARIABLE",
+      "valueType": "double",
       "default": 0
     },
     "netSalaryEmployee": {
       "name": "netSalaryEmployee",
-      "type": "double",
+      "type": "VARIABLE",
+      "valueType": "double",
       "default": 0
     },
     "netSalaryEmployerPayment": {
       "name": "netSalaryEmployerPayment",
-      "type": "double",
+      "type": "VARIABLE",
+      "valueType": "double",
       "default": 0
     }
   },
