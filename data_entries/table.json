@@ -1,0 +1,12 @@
+{
+  "tables": {
+    "Employee": {
+      "name": "tb_employee",
+      "definition": "employee(name VARCHAR,aga INTEGER,basicSalary DOUBLE)"
+    },
+    "WorkingSlot":{
+      "name":"tb_working_slot",
+      "definition":"working_slot(sign_in_time DATE, sign_out_time DATE)"
+    }
+  }
+}
