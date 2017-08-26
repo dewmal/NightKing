@@ -1,3 +1,6 @@
 rootProject.name = 'KnightKingProcessManager'
 include 'ProcessManager'
+include 'DataManager'
+include 'common-libs'
+include 'api-manager'
 

@@ -45,6 +45,12 @@
       "type": "VARIABLE",
       "valueType": "double",
       "default": 0
+    },
+    "employeeAllowance": {
+      "name": "employeeAllowance",
+      "type": "VARIABLE",
+      "valueType": "double",
+      "default": 0
     }
   },
   "events": [
@@ -67,6 +73,11 @@
       "name": "findNetSalaryEmployerPayment",
       "process": "basicSalary+calculatedEpfFromEmployer",
       "output": "netSalaryEmployerPayment"
+    },
+    {
+      "name": "findAllowance",
+      "process": "basicSalary+(basicSalary*10/100)",
+      "output": "employeeAllowance"
     }
   ],
   "author": "E-Green",

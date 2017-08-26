@@ -1,0 +1,7 @@
+{
+  "employee":{
+    "name":{
+      "type":"NUMBER"
+    }
+  }
+}
