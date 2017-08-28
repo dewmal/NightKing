@@ -19,7 +19,7 @@ class ProcessModelBuilder {
 
     constructor(url: URL) {
         val jacksonMapper = ObjectMapper().registerModule(KotlinModule())
-        processModel = jacksonMapper.readValue(File("./processes/calculate_epf.json"), ProcessModel::class.java)
+        processModel = jacksonMapper.readValue(url, ProcessModel::class.java)
     }
 
     fun setVariables(key: String, value: Any): ProcessModelBuilder {
@@ -53,6 +53,9 @@ class ProcessManager {
 
         // Create or retrieve an engine
         val jexl = JexlBuilder().create()
+
+
+
         val jc = MapContext()
 
         for (entry in processModel.variables) {

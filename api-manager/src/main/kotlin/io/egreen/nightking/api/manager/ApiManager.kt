@@ -1,19 +1,15 @@
 package io.egreen.nightking.api.manager
 
-import io.egreen.apistudio.bootstrap.ApiStudio
-import io.egreen.apistudio.bootstrap.config.MSApp
-import javax.ws.rs.ApplicationPath
+import javax.ws.rs.GET
+import javax.ws.rs.Path
 
-@ApplicationPath("/")
-@MSApp(name = "KnightKingProcessManager")
+
+@Path("apimanager")
 open class ApiManager {
 
-
-    companion object {
-        @JvmStatic
-        fun main(args: Array<String>) {
-            ApiStudio.boot(ApiManager.javaClass, "0.0.0.0", 2568, "/api",null)
-        }
+    @GET
+    fun getVersion():String{
+        return "V.0.0.1"
     }
 
 }
